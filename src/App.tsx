@@ -11,7 +11,7 @@ for (let i = 0; i < 20; i++) {
     poi: i % 2 as 0 | 1,
     name: 'man',
     avatar: heads.man1,
-    content: 'msg msg msg msg msg x' + i,
+    content: '长河落日圆 msg msg msg msg msg x' + i,
   })
 }
 
