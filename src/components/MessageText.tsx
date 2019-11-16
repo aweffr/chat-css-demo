@@ -1,29 +1,30 @@
 import React from 'react';
 import classNames from 'classnames';
-import './Message.styl';
+import './MessageText.styl';
 
-export const MessagePoi: { left: 0, right: 1 } = {
-  left: 0,
-  right: 1
+export const MessagePoi: { left: 'left', right: 'right' } = {
+  left: 'left',
+  right: 'right'
 };
 
 export type MessageTextProps = {
+  msgId: string,
   avatar: string,
   name: string,
-  poi: 0 | 1,
+  poi: 'left' | 'right',
   content: string,
+  showName?: boolean,
 }
 
 const MessageText = (props: MessageTextProps) => {
-  const { poi, content, name, avatar } = props;
-  const poiClassName = (poi === MessagePoi.left) ? 'left' : 'right';
+  const { poi, content, name, avatar, showName } = props;
   return (
-    <div className={classNames('message-text', poiClassName)}>
+    <div className={classNames('message-text', poi)}>
       <div className="person-info">
-        <div className="name">{name}</div>
+        {showName && <div className="name">{name}</div>}
         <img className="avatar" src={avatar} alt={avatar}/>
       </div>
-      <p className={poiClassName}>{content}</p>
+      <p className={poi}>{content}</p>
     </div>
   );
 };

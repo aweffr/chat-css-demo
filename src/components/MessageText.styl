@@ -1,5 +1,4 @@
 .message-text {
-
   display flex;
 
   &.left {
@@ -30,10 +29,15 @@
   .person-info {
     display flex;
     flex-direction column;
+    justify-content center;
     align-items center;
+    position relative;
+
+    margin 0 0.5rem;
 
     .name {
-      display block;
+      position absolute;
+      top: 0;
     }
 
     img {

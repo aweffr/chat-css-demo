@@ -1,0 +1,57 @@
+height-header = 100px;
+height-message-list = 60%;
+
+::-webkit-scrollbar {
+  width 0;
+}
+
+.message-box {
+  height 100vh;
+  width 100%;
+  overflow hidden;
+
+
+  .header {
+    height height-header;
+
+    h1 {
+      margin 15px 0
+    }
+
+    h2 {
+      margin 5px 0
+    }
+
+    @media only screen and (max-height: 480px) {
+      & {
+        height 'calc(%s / 2)' % height-header;
+      }
+
+      h2 {
+        display none
+      }
+    }
+  }
+
+  .message-list {
+
+    background-color #F5F5F5;
+
+    &::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    height height-message-list;
+    display flex;
+    flex-direction column-reverse;
+    overflow-y scroll;
+  }
+
+  .user-input-area {
+    box-sizing border-box
+    border-top 0.33rem solid #EEEEEE
+    height 'calc(100% - %s - %s)' % ( height-header height-message-list )
+    background-color #F5F5F5
+  }
+
+}

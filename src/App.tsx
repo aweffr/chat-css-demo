@@ -2,27 +2,27 @@ import React from 'react';
 import * as heads from './assets/heads';
 import './assets/normalize.css';
 import './App.css';
+import MessageBox from "./components/MessageBox";
 import MessageText, { MessageTextProps } from "./components/MessageText";
 
 
 const msgs: MessageTextProps[] = [];
-for (let i = 0; i < 20; i++) {
+for (let i = 1; i <= 40; i++) {
   msgs.push({
-    poi: i % 2 as 0 | 1,
+    msgId: "" + i,
+    poi: i % 2 === 0 ? 'left' : 'right',
     name: 'man',
     avatar: heads.man1,
-    content: '长河落日圆 msg msg msg msg msg x' + i,
+    content: '长河落日圆 铁锅炖自己 msg msg msg msg msg x' + i,
+    showName: true,
   })
 }
+msgs.reverse();
 
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      {
-        msgs.map((msg, idx) => <MessageText {...msg} key={idx}/>)
-      }
-    </div>
+    <MessageBox messages={msgs} title='Title 1' subTitle=' Title 1.1'/>
   );
 };
 
