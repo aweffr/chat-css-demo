@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import './Message.css';
+import './Message.styl';
 
 export const MessagePoi: { left: 0, right: 1 } = {
   left: 0,
